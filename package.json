@@ -1,6 +1,6 @@
 {
   "name": "hone-tip-drawer",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A component built with wagmi & shadCN that allows you to accept direct tips on your website",
   "main": "src/index.ts",
   "types": "src/types/index.d.ts",
