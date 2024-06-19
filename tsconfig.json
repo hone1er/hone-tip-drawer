@@ -15,8 +15,8 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
+    "isolatedModules": false, // Change to false if you have a full TypeScript setup
+    "noEmit": true, // Change to false if you want TypeScript to emit JavaScript files
     "jsx": "react-jsx"
   }
 }
