@@ -1,83 +1,52 @@
-"use strict";
-var __create = Object.create;
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
-  }
-  return to;
-};
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-  // If the importer is in node compatibility mode or this is not an ESM
-  // file that has been converted to a CommonJS file using a Babel-
-  // compatible transform (i.e. "__esModule" has not been set), then set
-  // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-  mod
-));
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
-
-// src/index.ts
-var src_exports = {};
-__export(src_exports, {
-  TipDrawer: () => TipDrawer
-});
-module.exports = __toCommonJS(src_exports);
-
 // src/components/Tip.tsx
-var import_react = require("react");
-var import_wagmi = require("wagmi");
+import { useState } from "react";
+import {
+  useChainId,
+  useSendTransaction,
+  useSwitchChain,
+  useWriteContract
+} from "wagmi";
 
 // src/components/ui/drawer.tsx
-var React = __toESM(require("react"));
-var import_vaul = require("vaul");
+import * as React from "react";
+import { Drawer as DrawerPrimitive } from "vaul";
 
 // lib/utils.ts
-var import_clsx = require("clsx");
-var import_tailwind_merge = require("tailwind-merge");
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 function cn(...inputs) {
-  return (0, import_tailwind_merge.twMerge)((0, import_clsx.clsx)(inputs));
+  return twMerge(clsx(inputs));
 }
 
 // src/components/ui/drawer.tsx
-var import_jsx_runtime = require("react/jsx-runtime");
+import { jsx, jsxs } from "react/jsx-runtime";
 var Drawer = ({
   shouldScaleBackground = true,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-  import_vaul.Drawer.Root,
+}) => /* @__PURE__ */ jsx(
+  DrawerPrimitive.Root,
   {
     shouldScaleBackground,
     ...props
   }
 );
 Drawer.displayName = "Drawer";
-var DrawerTrigger = import_vaul.Drawer.Trigger;
-var DrawerPortal = import_vaul.Drawer.Portal;
-var DrawerClose = import_vaul.Drawer.Close;
-var DrawerOverlay = React.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-  import_vaul.Drawer.Overlay,
+var DrawerTrigger = DrawerPrimitive.Trigger;
+var DrawerPortal = DrawerPrimitive.Portal;
+var DrawerClose = DrawerPrimitive.Close;
+var DrawerOverlay = React.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(
+  DrawerPrimitive.Overlay,
   {
     ref,
     className: cn("fixed inset-0 z-50 bg-black/80", className),
     ...props
   }
 ));
-DrawerOverlay.displayName = import_vaul.Drawer.Overlay.displayName;
-var DrawerContent = React.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DrawerPortal, { children: [
-  /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawerOverlay, {}),
-  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-    import_vaul.Drawer.Content,
+DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
+var DrawerContent = React.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ jsxs(DrawerPortal, { children: [
+  /* @__PURE__ */ jsx(DrawerOverlay, {}),
+  /* @__PURE__ */ jsxs(
+    DrawerPrimitive.Content,
     {
       ref,
       className: cn(
@@ -86,7 +55,7 @@ var DrawerContent = React.forwardRef(({ className, children, ...props }, ref) =>
       ),
       ...props,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" }),
+        /* @__PURE__ */ jsx("div", { className: "mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" }),
         children
       ]
     }
@@ -96,7 +65,7 @@ DrawerContent.displayName = "DrawerContent";
 var DrawerHeader = ({
   className,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+}) => /* @__PURE__ */ jsx(
   "div",
   {
     className: cn("grid gap-1.5 p-4 text-center sm:text-left", className),
@@ -107,7 +76,7 @@ DrawerHeader.displayName = "DrawerHeader";
 var DrawerFooter = ({
   className,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+}) => /* @__PURE__ */ jsx(
   "div",
   {
     className: cn("mt-auto flex flex-col gap-2 p-4", className),
@@ -115,8 +84,8 @@ var DrawerFooter = ({
   }
 );
 DrawerFooter.displayName = "DrawerFooter";
-var DrawerTitle = React.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-  import_vaul.Drawer.Title,
+var DrawerTitle = React.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(
+  DrawerPrimitive.Title,
   {
     ref,
     className: cn(
@@ -126,26 +95,26 @@ var DrawerTitle = React.forwardRef(({ className, ...props }, ref) => /* @__PURE_
     ...props
   }
 ));
-DrawerTitle.displayName = import_vaul.Drawer.Title.displayName;
-var DrawerDescription = React.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-  import_vaul.Drawer.Description,
+DrawerTitle.displayName = DrawerPrimitive.Title.displayName;
+var DrawerDescription = React.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(
+  DrawerPrimitive.Description,
   {
     ref,
     className: cn("text-sm text-muted-foreground", className),
     ...props
   }
 ));
-DrawerDescription.displayName = import_vaul.Drawer.Description.displayName;
+DrawerDescription.displayName = DrawerPrimitive.Description.displayName;
 
 // src/components/Tip.tsx
-var import_viem = require("viem");
+import { erc20Abi, parseEther } from "viem";
 
 // src/components/ui/input.tsx
-var React2 = __toESM(require("react"));
-var import_jsx_runtime2 = require("react/jsx-runtime");
+import * as React2 from "react";
+import { jsx as jsx2 } from "react/jsx-runtime";
 var Input = React2.forwardRef(
   ({ className, type, ...props }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    return /* @__PURE__ */ jsx2(
       "input",
       {
         type,
@@ -162,19 +131,19 @@ var Input = React2.forwardRef(
 Input.displayName = "Input";
 
 // src/components/Tip.tsx
-var import_polygon_logo = __toESM(require("public/logos/polygon_logo"));
-var import_optimism_logo = __toESM(require("public/logos/optimism_logo"));
-var import_base_logo = __toESM(require("public/logos/base_logo"));
-var import_ethereum_logo = __toESM(require("public/logos/ethereum_logo"));
+import PolygonLogo from "public/logos/polygon_logo";
+import OptimismLogo from "public/logos/optimism_logo";
+import BaseLogo from "public/logos/base_logo";
+import EthereumLogo from "public/logos/ethereum_logo";
 
 // src/components/ui/select.tsx
-var React3 = __toESM(require("react"));
-var SelectPrimitive = __toESM(require("@radix-ui/react-select"));
-var import_lucide_react = require("lucide-react");
-var import_jsx_runtime3 = require("react/jsx-runtime");
+import * as React3 from "react";
+import * as SelectPrimitive from "@radix-ui/react-select";
+import { Check, ChevronDown, ChevronUp } from "lucide-react";
+import { jsx as jsx3, jsxs as jsxs2 } from "react/jsx-runtime";
 var Select = SelectPrimitive.Root;
 var SelectValue = SelectPrimitive.Value;
-var SelectTrigger = React3.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+var SelectTrigger = React3.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ jsxs2(
   SelectPrimitive.Trigger,
   {
     ref,
@@ -185,12 +154,12 @@ var SelectTrigger = React3.forwardRef(({ className, children, ...props }, ref) =
     ...props,
     children: [
       children,
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(SelectPrimitive.Icon, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_lucide_react.ChevronDown, { className: "h-4 w-4 opacity-50" }) })
+      /* @__PURE__ */ jsx3(SelectPrimitive.Icon, { asChild: true, children: /* @__PURE__ */ jsx3(ChevronDown, { className: "h-4 w-4 opacity-50" }) })
     ]
   }
 ));
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
-var SelectScrollUpButton = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+var SelectScrollUpButton = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx3(
   SelectPrimitive.ScrollUpButton,
   {
     ref,
@@ -199,11 +168,11 @@ var SelectScrollUpButton = React3.forwardRef(({ className, ...props }, ref) => /
       className
     ),
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_lucide_react.ChevronUp, { className: "h-4 w-4" })
+    children: /* @__PURE__ */ jsx3(ChevronUp, { className: "h-4 w-4" })
   }
 ));
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
-var SelectScrollDownButton = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+var SelectScrollDownButton = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx3(
   SelectPrimitive.ScrollDownButton,
   {
     ref,
@@ -212,11 +181,11 @@ var SelectScrollDownButton = React3.forwardRef(({ className, ...props }, ref) =>
       className
     ),
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_lucide_react.ChevronDown, { className: "h-4 w-4" })
+    children: /* @__PURE__ */ jsx3(ChevronDown, { className: "h-4 w-4" })
   }
 ));
 SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName;
-var SelectContent = React3.forwardRef(({ className, children, position = "popper", ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(SelectPrimitive.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+var SelectContent = React3.forwardRef(({ className, children, position = "popper", ...props }, ref) => /* @__PURE__ */ jsx3(SelectPrimitive.Portal, { children: /* @__PURE__ */ jsxs2(
   SelectPrimitive.Content,
   {
     ref,
@@ -228,8 +197,8 @@ var SelectContent = React3.forwardRef(({ className, children, position = "popper
     position,
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(SelectScrollUpButton, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      /* @__PURE__ */ jsx3(SelectScrollUpButton, {}),
+      /* @__PURE__ */ jsx3(
         SelectPrimitive.Viewport,
         {
           className: cn(
@@ -239,12 +208,12 @@ var SelectContent = React3.forwardRef(({ className, children, position = "popper
           children
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(SelectScrollDownButton, {})
+      /* @__PURE__ */ jsx3(SelectScrollDownButton, {})
     ]
   }
 ) }));
 SelectContent.displayName = SelectPrimitive.Content.displayName;
-var SelectLabel = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+var SelectLabel = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx3(
   SelectPrimitive.Label,
   {
     ref,
@@ -253,7 +222,7 @@ var SelectLabel = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE
   }
 ));
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
-var SelectItem = React3.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+var SelectItem = React3.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ jsxs2(
   SelectPrimitive.Item,
   {
     ref,
@@ -263,13 +232,13 @@ var SelectItem = React3.forwardRef(({ className, children, ...props }, ref) => /
     ),
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(SelectPrimitive.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_lucide_react.Check, { className: "h-4 w-4" }) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(SelectPrimitive.ItemText, { children })
+      /* @__PURE__ */ jsx3("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx3(SelectPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx3(Check, { className: "h-4 w-4" }) }) }),
+      /* @__PURE__ */ jsx3(SelectPrimitive.ItemText, { children })
     ]
   }
 ));
 SelectItem.displayName = SelectPrimitive.Item.displayName;
-var SelectSeparator = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+var SelectSeparator = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx3(
   SelectPrimitive.Separator,
   {
     ref,
@@ -280,11 +249,11 @@ var SelectSeparator = React3.forwardRef(({ className, ...props }, ref) => /* @__
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
 // src/components/ui/button.tsx
-var React4 = __toESM(require("react"));
-var import_react_slot = require("@radix-ui/react-slot");
-var import_class_variance_authority = require("class-variance-authority");
-var import_jsx_runtime4 = require("react/jsx-runtime");
-var buttonVariants = (0, import_class_variance_authority.cva)(
+import * as React4 from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva } from "class-variance-authority";
+import { jsx as jsx4 } from "react/jsx-runtime";
+var buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
@@ -311,8 +280,8 @@ var buttonVariants = (0, import_class_variance_authority.cva)(
 );
 var Button = React4.forwardRef(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? import_react_slot.Slot : "button";
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+    const Comp = asChild ? Slot : "button";
+    return /* @__PURE__ */ jsx4(
       Comp,
       {
         className: cn(buttonVariants({ variant, size, className })),
@@ -325,7 +294,7 @@ var Button = React4.forwardRef(
 Button.displayName = "Button";
 
 // src/components/Tip.tsx
-var import_jsx_runtime5 = require("react/jsx-runtime");
+import { jsx as jsx5, jsxs as jsxs3 } from "react/jsx-runtime";
 var currencyMap = {
   1: [
     {
@@ -378,17 +347,17 @@ var currencyMap = {
   ]
 };
 function TipDrawer({ className }) {
-  const [amount, setAmount] = (0, import_react.useState)("");
-  const chainId = (0, import_wagmi.useChainId)();
-  const { sendTransaction } = (0, import_wagmi.useSendTransaction)();
-  const { writeContractAsync } = (0, import_wagmi.useWriteContract)();
-  const { chains, switchChain } = (0, import_wagmi.useSwitchChain)();
-  const [selectedCurrencyAddress, setSelectedCurrencyAddress] = (0, import_react.useState)("");
+  const [amount, setAmount] = useState("");
+  const chainId = useChainId();
+  const { sendTransaction } = useSendTransaction();
+  const { writeContractAsync } = useWriteContract();
+  const { chains, switchChain } = useSwitchChain();
+  const [selectedCurrencyAddress, setSelectedCurrencyAddress] = useState("");
   const chainLogoMap = {
-    137: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_polygon_logo.default, {}),
-    10: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_optimism_logo.default, {}),
-    8453: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_base_logo.default, {}),
-    1: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_ethereum_logo.default, {})
+    137: /* @__PURE__ */ jsx5(PolygonLogo, {}),
+    10: /* @__PURE__ */ jsx5(OptimismLogo, {}),
+    8453: /* @__PURE__ */ jsx5(BaseLogo, {}),
+    1: /* @__PURE__ */ jsx5(EthereumLogo, {})
   };
   const chainColorMap = {
     137: "violet-600",
@@ -401,11 +370,11 @@ function TipDrawer({ className }) {
       await writeContractAsync(
         {
           address,
-          abi: import_viem.erc20Abi,
+          abi: erc20Abi,
           functionName: "transfer",
           args: [
             process.env.NEXT_PUBLIC_TIP_ADDRESS,
-            (0, import_viem.parseEther)(amount)
+            parseEther(amount)
           ]
         },
         {
@@ -428,35 +397,35 @@ function TipDrawer({ className }) {
     try {
       sendTransaction({
         to: process.env.NEXT_PUBLIC_TIP_ADDRESS,
-        value: (0, import_viem.parseEther)(amount)
+        value: parseEther(amount)
       });
     } catch (error) {
       console.error(error);
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(Drawer, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(DrawerTrigger, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+  return /* @__PURE__ */ jsxs3(Drawer, { children: [
+    /* @__PURE__ */ jsx5(DrawerTrigger, { asChild: true, children: /* @__PURE__ */ jsxs3(
       Button,
       {
         size: "sm",
         variant: "outline",
         className: `flex items-center gap-2 ${className}`,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(PointerIcon, { className: "h-5 w-5" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "Send Tip" })
+          /* @__PURE__ */ jsx5(PointerIcon, { className: "h-5 w-5" }),
+          /* @__PURE__ */ jsx5("span", { children: "Send Tip" })
         ]
       }
     ) }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(DrawerContent, { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mx-auto w-full max-w-sm", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(DrawerHeader, { className: "space-y-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(DrawerTitle, { children: "Send a tip!" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(DrawerDescription, { children: [
+    /* @__PURE__ */ jsx5(DrawerContent, { children: /* @__PURE__ */ jsxs3("div", { className: "mx-auto w-full max-w-sm", children: [
+      /* @__PURE__ */ jsxs3(DrawerHeader, { className: "space-y-4", children: [
+        /* @__PURE__ */ jsx5(DrawerTitle, { children: "Send a tip!" }),
+        /* @__PURE__ */ jsxs3(DrawerDescription, { children: [
           "Did this tool help you? Send a tip to show your appreciation!",
           " ",
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
+          /* @__PURE__ */ jsx5("br", {}),
+          /* @__PURE__ */ jsx5("br", {}),
           "This tool was created by",
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+          /* @__PURE__ */ jsxs3(
             "a",
             {
               href: "https://hey.xyz/u/hone1er",
@@ -472,9 +441,9 @@ function TipDrawer({ className }) {
           "! Follow on hey.xyz or any Lens app for more updates. \u{1F680}"
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "flex max-w-sm flex-col gap-6 p-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h3", { className: "text-lg font-semibold", children: "Select Chain" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "flex flex-wrap gap-2", children: chains.map((chain) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+      /* @__PURE__ */ jsxs3("div", { className: "flex max-w-sm flex-col gap-6 p-4", children: [
+        /* @__PURE__ */ jsx5("h3", { className: "text-lg font-semibold", children: "Select Chain" }),
+        /* @__PURE__ */ jsx5("div", { className: "flex flex-wrap gap-2", children: chains.map((chain) => /* @__PURE__ */ jsx5(
           Button,
           {
             onClick: () => switchChain({ chainId: chain.id }),
@@ -485,13 +454,13 @@ function TipDrawer({ className }) {
           },
           chain.id
         )) }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+        /* @__PURE__ */ jsxs3(
           Select,
           {
             onValueChange: (val) => setSelectedCurrencyAddress(val),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(SelectTrigger, { className: "w-[180px]", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(SelectValue, { placeholder: "Currency" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(SelectContent, { children: currencyMap[chainId]?.map((currency) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(SelectItem, { value: currency.address, children: [
+              /* @__PURE__ */ jsx5(SelectTrigger, { className: "w-[180px]", children: /* @__PURE__ */ jsx5(SelectValue, { placeholder: "Currency" }) }),
+              /* @__PURE__ */ jsx5(SelectContent, { children: currencyMap[chainId]?.map((currency) => /* @__PURE__ */ jsxs3(SelectItem, { value: currency.address, children: [
                 currency.name,
                 " (",
                 currency.symbol,
@@ -501,7 +470,7 @@ function TipDrawer({ className }) {
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "p-4 pb-0", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+      /* @__PURE__ */ jsx5("div", { className: "p-4 pb-0", children: /* @__PURE__ */ jsx5("div", { className: "mt-3", children: /* @__PURE__ */ jsx5(
         Input,
         {
           placeholder: "Enter amount",
@@ -512,21 +481,21 @@ function TipDrawer({ className }) {
           step: "0.01"
         }
       ) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(DrawerFooter, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+      /* @__PURE__ */ jsxs3(DrawerFooter, { children: [
+        /* @__PURE__ */ jsx5(
           Button,
           {
             onClick: () => handleTransferERC20(selectedCurrencyAddress),
             children: "Send"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(DrawerClose, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Button, { variant: "outline", children: "Cancel" }) })
+        /* @__PURE__ */ jsx5(DrawerClose, { asChild: true, children: /* @__PURE__ */ jsx5(Button, { variant: "outline", children: "Cancel" }) })
       ] })
     ] }) })
   ] });
 }
 function PointerIcon({ ...props }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+  return /* @__PURE__ */ jsxs3(
     "svg",
     {
       ...props,
@@ -540,16 +509,15 @@ function PointerIcon({ ...props }) {
       strokeLinecap: "round",
       strokeLinejoin: "round",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M22 14a8 8 0 0 1-8 8" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M18 11v-1a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M14 10V9a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M10 9.5V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v10" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" })
+        /* @__PURE__ */ jsx5("path", { d: "M22 14a8 8 0 0 1-8 8" }),
+        /* @__PURE__ */ jsx5("path", { d: "M18 11v-1a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" }),
+        /* @__PURE__ */ jsx5("path", { d: "M14 10V9a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1" }),
+        /* @__PURE__ */ jsx5("path", { d: "M10 9.5V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v10" }),
+        /* @__PURE__ */ jsx5("path", { d: "M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" })
       ]
     }
   );
 }
-// Annotate the CommonJS export names for ESM import in node:
-0 && (module.exports = {
+export {
   TipDrawer
-});
+};

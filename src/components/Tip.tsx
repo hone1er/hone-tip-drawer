@@ -29,7 +29,7 @@ import {
   SelectValue,
 } from './ui/select';
 import { Button } from './ui/button';
-import { Currency } from 'src/types/Currency';
+import { Currency } from '../Currency';
 
 const currencyMap: Record<number, Currency[]> = {
   1: [
