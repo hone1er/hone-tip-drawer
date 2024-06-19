@@ -36,7 +36,6 @@ module.exports = __toCommonJS(src_exports);
 
 // src/components/Tip.tsx
 var import_react = require("react");
-var import_wagmi = require("wagmi");
 
 // src/components/ui/drawer.tsx
 var React = __toESM(require("react"));
@@ -533,12 +532,15 @@ var currencyMap = {
     }
   ]
 };
-function TipDrawer({ className }) {
+function TipDrawer({
+  className,
+  chainId,
+  sendTransaction,
+  writeContractAsync,
+  chains,
+  switchChain
+}) {
   const [amount, setAmount] = (0, import_react.useState)("");
-  const chainId = (0, import_wagmi.useChainId)();
-  const { sendTransaction } = (0, import_wagmi.useSendTransaction)();
-  const { writeContractAsync } = (0, import_wagmi.useWriteContract)();
-  const { chains, switchChain } = (0, import_wagmi.useSwitchChain)();
   const [selectedCurrencyAddress, setSelectedCurrencyAddress] = (0, import_react.useState)("");
   const chainLogoMap = {
     137: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PolygonLogo, {}),

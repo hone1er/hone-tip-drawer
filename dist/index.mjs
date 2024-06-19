@@ -1,11 +1,5 @@
 // src/components/Tip.tsx
 import { useState } from "react";
-import {
-  useChainId,
-  useSendTransaction,
-  useSwitchChain,
-  useWriteContract
-} from "wagmi";
 
 // src/components/ui/drawer.tsx
 import * as React from "react";
@@ -502,12 +496,15 @@ var currencyMap = {
     }
   ]
 };
-function TipDrawer({ className }) {
+function TipDrawer({
+  className,
+  chainId,
+  sendTransaction,
+  writeContractAsync,
+  chains,
+  switchChain
+}) {
   const [amount, setAmount] = useState("");
-  const chainId = useChainId();
-  const { sendTransaction } = useSendTransaction();
-  const { writeContractAsync } = useWriteContract();
-  const { chains, switchChain } = useSwitchChain();
   const [selectedCurrencyAddress, setSelectedCurrencyAddress] = useState("");
   const chainLogoMap = {
     137: /* @__PURE__ */ jsx9(PolygonLogo, {}),
