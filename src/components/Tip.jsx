@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   useChainId,
   useSendTransaction,
@@ -31,7 +31,7 @@ import {
 import { Button } from './ui/button';
 import { Currency } from '../types/Currency';
 
-const currencyMap: Record<number, Currency[]> = {
+const currencyMap = {
   1: [
     {
       name: 'Wrapped Ethereum',
@@ -83,7 +83,7 @@ const currencyMap: Record<number, Currency[]> = {
     },
   ],
 };
-export function TipDrawer({ className }: { className?: string }) {
+export function TipDrawer({ className }) {
   const [amount, setAmount] = useState('');
   const chainId = useChainId();
 
@@ -91,37 +91,34 @@ export function TipDrawer({ className }: { className?: string }) {
   const { writeContractAsync } = useWriteContract();
   const { chains, switchChain } = useSwitchChain();
   const [selectedCurrencyAddress, setSelectedCurrencyAddress] = useState('');
-  const chainLogoMap: Record<number | string, JSX.Element> = {
+  const chainLogoMap = {
     137: <PolygonLogo />,
     10: <OptimismLogo />,
     8453: <BaseLogo />,
     1: <EthereumLogo />,
   };
 
-  const chainColorMap: Record<number, string> = {
+  const chainColorMap = {
     137: 'violet-600',
     10: 'red-600',
     8453: 'blue-600',
     1: 'gray-600',
   };
 
-  const handleTransferERC20 = async (address: `0x${string}`) => {
+  const handleTransferERC20 = async (address) => {
     try {
       await writeContractAsync(
         {
           address: address,
           abi: erc20Abi,
           functionName: 'transfer',
-          args: [
-            process.env.NEXT_PUBLIC_TIP_ADDRESS as `0x${string}`,
-            parseEther(amount),
-          ],
+          args: [process.env.NEXT_PUBLIC_TIP_ADDRESS, parseEther(amount)],
         },
         {
           onError: (error) => {
             alert(error.message);
           },
-          onSuccess: (hash: string) => {
+          onSuccess: (hash) => {
             alert(
               `Thanks for the tip! 🚀 
           Transaction hash: ` +
@@ -140,7 +137,7 @@ export function TipDrawer({ className }: { className?: string }) {
   const handleSend = async () => {
     try {
       sendTransaction({
-        to: process.env.NEXT_PUBLIC_TIP_ADDRESS as `0x${string}`,
+        to: process.env.NEXT_PUBLIC_TIP_ADDRESS,
 
         value: parseEther(amount),
       });
@@ -203,14 +200,12 @@ export function TipDrawer({ className }: { className?: string }) {
                 </Button>
               ))}
             </div>
-            <Select
-              onValueChange={(val: string) => setSelectedCurrencyAddress(val)}
-            >
+            <Select onValueChange={(val) => setSelectedCurrencyAddress(val)}>
               <SelectTrigger className='w-[180px]'>
                 <SelectValue placeholder='Currency' />
               </SelectTrigger>
               <SelectContent>
-                {currencyMap[chainId]?.map((currency: Currency) => (
+                {currencyMap[chainId]?.map((currency) => (
                   <SelectItem key={currency.address} value={currency.address}>
                     {currency.name} ({currency.symbol})
                   </SelectItem>
@@ -223,9 +218,7 @@ export function TipDrawer({ className }: { className?: string }) {
               <Input
                 placeholder={'Enter amount'}
                 value={amount}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setAmount(e.target.value)
-                }
+                onChange={(e) => setAmount(e.target.value)}
                 type='number'
                 min='0'
                 step='0.01'
@@ -234,9 +227,7 @@ export function TipDrawer({ className }: { className?: string }) {
           </div>
           <DrawerFooter>
             <Button
-              onClick={() =>
-                handleTransferERC20(selectedCurrencyAddress as `0x${string}`)
-              }
+              onClick={() => handleTransferERC20(selectedCurrencyAddress)}
             >
               Send
             </Button>
