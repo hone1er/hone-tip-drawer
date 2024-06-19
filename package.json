@@ -2,10 +2,10 @@
   "name": "hone-tip-drawer",
   "version": "1.0.0",
   "description": "A component built with wagmi & shadCN that allows you to accept direct tips on your website",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "prepublishOnly": "npm run build"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -33,9 +33,6 @@
     "vaul": "^0.9.1",
     "viem": "^2.15.1",
     "wagmi": "^2.10.2"
-  },
-  "peerDependencies": {
-    "react": "^17.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.16",
