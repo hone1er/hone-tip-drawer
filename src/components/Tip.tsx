@@ -90,7 +90,7 @@ export function TipDrawer({ className }: { className?: string }) {
   const { writeContractAsync } = useWriteContract();
   const { chains, switchChain } = useSwitchChain();
   const [selectedCurrencyAddress, setSelectedCurrencyAddress] = useState('');
-  const chainLogoMap: Record<number | string, JSX.Element> = {
+  const chainLogoMap: any = {
     137: <PolygonLogo />,
     10: <OptimismLogo />,
     8453: <BaseLogo />,
