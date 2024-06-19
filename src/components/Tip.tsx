@@ -17,10 +17,10 @@ import {
 } from './ui/drawer';
 import { erc20Abi, parseEther } from 'viem';
 import { Input } from './ui/input';
-import PolygonLogo from 'public/logos/polygon_logo';
-import OptimismLogo from 'public/logos/optimism_logo';
-import BaseLogo from 'public/logos/base_logo';
-import EthereumLogo from 'public/logos/ethereum_logo';
+import PolygonLogo from '../../public/logos/polygon_logo';
+import OptimismLogo from '../../public/logos/optimism_logo';
+import BaseLogo from '../../public/logos/base_logo';
+import EthereumLogo from '../../public/logos/ethereum_logo';
 import {
   Select,
   SelectContent,
