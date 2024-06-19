@@ -16,7 +16,6 @@ import {
   DrawerTrigger,
 } from './ui/drawer';
 import { erc20Abi, parseEther } from 'viem';
-
 import { Input } from './ui/input';
 import PolygonLogo from 'public/logos/polygon_logo';
 import OptimismLogo from 'public/logos/optimism_logo';
@@ -30,12 +29,6 @@ import {
   SelectValue,
 } from './ui/select';
 import { Button } from './ui/button';
-
-type Currency = {
-  name: string;
-  symbol: string;
-  address: string;
-};
 
 const currencyMap: Record<number, Currency[]> = {
   1: [
