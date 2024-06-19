@@ -29,8 +29,9 @@ import {
   SelectValue,
 } from './ui/select';
 import { Button } from './ui/button';
+import { Currency } from 'src/types/Currency';
 
-const currencyMap: any = {
+const currencyMap: Record<number, Currency[]> = {
   1: [
     {
       name: 'Wrapped Ethereum',
@@ -90,7 +91,7 @@ export function TipDrawer({ className }: { className?: string }) {
   const { writeContractAsync } = useWriteContract();
   const { chains, switchChain } = useSwitchChain();
   const [selectedCurrencyAddress, setSelectedCurrencyAddress] = useState('');
-  const chainLogoMap: any = {
+  const chainLogoMap: Record<number | string, JSX.Element> = {
     137: <PolygonLogo />,
     10: <OptimismLogo />,
     8453: <BaseLogo />,
@@ -209,7 +210,7 @@ export function TipDrawer({ className }: { className?: string }) {
                 <SelectValue placeholder='Currency' />
               </SelectTrigger>
               <SelectContent>
-                {currencyMap[chainId]?.map((currency: any) => (
+                {currencyMap[chainId]?.map((currency: Currency) => (
                   <SelectItem key={currency.address} value={currency.address}>
                     {currency.name} ({currency.symbol})
                   </SelectItem>

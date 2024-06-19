@@ -1,11 +1,9 @@
 {
   "name": "hone-tip-drawer",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A component built with wagmi & shadCN that allows you to accept direct tips on your website",
-  "main": "src/index.ts",
-  "module": "./_esm/index.js",
-  "types": "./_types/index.d.ts",
-  "typings": "./_types/index.d.ts",
+  "main": ".dist/index.js",
+  "types": ".dist/types/index.d.ts",
   "scripts": {
     "build": "babel src --out-dir lib",
     "prepublishOnly": "npm run build"
@@ -38,14 +36,17 @@
     "wagmi": "^2.10.2"
   },
   "devDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
     "@babel/cli": "^7.13.16",
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",
     "@babel/preset-react": "^7.13.13",
+    "@swc/core": "^1.6.3",
     "@types/node": "^20.14.5",
-    "@types/react": "^18.3.3"
+    "@types/react": "^18.3.3",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tsup": "^8.1.0",
+    "typescript": "^5.4.5"
   },
   "babel": {
     "presets": [
