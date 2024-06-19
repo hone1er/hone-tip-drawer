@@ -31,11 +31,11 @@ import {
 } from './ui/select';
 import { Button } from './ui/button';
 
-interface Currency {
+type Currency = {
   name: string;
   symbol: string;
   address: string;
-}
+};
 
 const currencyMap: Record<number, Currency[]> = {
   1: [
