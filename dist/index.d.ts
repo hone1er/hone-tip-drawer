@@ -1,7 +1,7 @@
-type Currency = {
-  name: string;
-  symbol: string;
-  address: string;
-};
+import * as react_jsx_runtime from 'react/jsx-runtime';
 
-export type { Currency };
+declare function TipDrawer({ className }: {
+    className?: string;
+}): react_jsx_runtime.JSX.Element;
+
+export { TipDrawer };

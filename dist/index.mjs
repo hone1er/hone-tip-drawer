@@ -130,20 +130,176 @@ var Input = React2.forwardRef(
 );
 Input.displayName = "Input";
 
-// src/components/Tip.tsx
-import PolygonLogo from "public/logos/polygon_logo";
-import OptimismLogo from "public/logos/optimism_logo";
-import BaseLogo from "public/logos/base_logo";
-import EthereumLogo from "public/logos/ethereum_logo";
+// public/logos/polygon_logo.tsx
+import { jsx as jsx3, jsxs as jsxs2 } from "react/jsx-runtime";
+function PolygonLogo() {
+  return /* @__PURE__ */ jsxs2(
+    "svg",
+    {
+      width: "360",
+      height: "360",
+      viewBox: "0 0 360 360",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      children: [
+        /* @__PURE__ */ jsx3("rect", { width: "360", height: "360", rx: "180", fill: "#6C00F6" }),
+        /* @__PURE__ */ jsx3(
+          "path",
+          {
+            d: "M218.804 99.5819L168.572 128.432V218.473L140.856 234.539L112.97 218.46V186.313L140.856 170.39L158.786 180.788V154.779L140.699 144.511L90.4795 173.687V231.399L140.869 260.418L191.088 231.399V141.371L218.974 125.291L246.846 141.371V173.374L218.974 189.597L200.887 179.107V204.986L218.804 215.319L269.519 186.47V128.432L218.804 99.5819Z",
+            fill: "white"
+          }
+        )
+      ]
+    }
+  );
+}
+
+// public/logos/optimism_logo.tsx
+import { jsx as jsx4, jsxs as jsxs3 } from "react/jsx-runtime";
+function OptimismLogo() {
+  return /* @__PURE__ */ jsxs3(
+    "svg",
+    {
+      width: "500",
+      height: "500",
+      viewBox: "0 0 500 500",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      children: [
+        /* @__PURE__ */ jsx4("circle", { cx: "250", cy: "250", r: "250", fill: "#FF0420" }),
+        /* @__PURE__ */ jsx4(
+          "path",
+          {
+            d: "M177.133 316.446C162.247 316.446 150.051 312.943 140.544 305.938C131.162 298.808 126.471 288.676 126.471 275.541C126.471 272.789 126.784 269.411 127.409 265.408C129.036 256.402 131.35 245.581 134.352 232.947C142.858 198.547 164.812 181.347 200.213 181.347C209.845 181.347 218.476 182.973 226.107 186.225C233.738 189.352 239.742 194.106 244.12 200.486C248.498 206.74 250.688 214.246 250.688 223.002C250.688 225.629 250.375 228.944 249.749 232.947C247.873 244.08 245.621 254.901 242.994 265.408C238.616 282.546 231.048 295.368 220.29 303.874C209.532 312.255 195.147 316.446 177.133 316.446ZM179.76 289.426C186.766 289.426 192.707 287.362 197.586 283.234C202.59 279.106 206.155 272.789 208.281 264.283C211.158 252.524 213.348 242.266 214.849 233.51C215.349 230.883 215.599 228.194 215.599 225.441C215.599 214.058 209.657 208.366 197.774 208.366C190.768 208.366 184.764 210.43 179.76 214.558C174.882 218.687 171.379 225.004 169.253 233.51C167.001 241.891 164.749 252.149 162.498 264.283C161.997 266.784 161.747 269.411 161.747 272.163C161.747 283.672 167.752 289.426 179.76 289.426Z",
+            fill: "white"
+          }
+        ),
+        /* @__PURE__ */ jsx4(
+          "path",
+          {
+            d: "M259.303 314.57C257.927 314.57 256.863 314.132 256.113 313.256C255.487 312.255 255.3 311.13 255.55 309.879L281.444 187.914C281.694 186.538 282.382 185.412 283.508 184.536C284.634 183.661 285.822 183.223 287.073 183.223H336.985C350.87 183.223 362.003 186.1 370.384 191.854C378.891 197.609 383.144 205.927 383.144 216.81C383.144 219.937 382.769 223.19 382.018 226.567C378.891 240.953 372.574 251.586 363.067 258.466C353.685 265.346 340.8 268.786 324.413 268.786H299.082L290.451 309.879C290.2 311.255 289.512 312.38 288.387 313.256C287.261 314.132 286.072 314.57 284.822 314.57H259.303ZM325.727 242.892C330.98 242.892 335.546 241.453 339.424 238.576C343.427 235.699 346.054 231.571 347.305 226.192C347.68 224.065 347.868 222.189 347.868 220.563C347.868 216.935 346.805 214.183 344.678 212.307C342.551 210.305 338.924 209.305 333.795 209.305H311.278L304.148 242.892H325.727Z",
+            fill: "white"
+          }
+        )
+      ]
+    }
+  );
+}
+
+// public/logos/base_logo.tsx
+import { jsx as jsx5, jsxs as jsxs4 } from "react/jsx-runtime";
+function BaseLogo() {
+  return /* @__PURE__ */ jsxs4(
+    "svg",
+    {
+      width: "146",
+      height: "146",
+      viewBox: "0 0 146 146",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      children: [
+        /* @__PURE__ */ jsx5("circle", { cx: "73", cy: "73", r: "73", fill: "#0052FF" }),
+        /* @__PURE__ */ jsx5(
+          "path",
+          {
+            d: "M73.323 123.729C101.617 123.729 124.553 100.832 124.553 72.5875C124.553 44.343 101.617 21.4463 73.323 21.4463C46.4795 21.4463 24.4581 42.0558 22.271 68.2887H89.9859V76.8864H22.271C24.4581 103.119 46.4795 123.729 73.323 123.729Z",
+            fill: "white"
+          }
+        )
+      ]
+    }
+  );
+}
+
+// public/logos/ethereum_logo.tsx
+import { jsx as jsx6, jsxs as jsxs5 } from "react/jsx-runtime";
+function EthereumLogo() {
+  return /* @__PURE__ */ jsxs5(
+    "svg",
+    {
+      width: "500",
+      height: "500",
+      viewBox: "-120 -30 500 500",
+      version: "1.1",
+      xmlns: "http://www.w3.org/2000/svg",
+      children: [
+        /* @__PURE__ */ jsx6("title", { children: "Ethereum" }),
+        /* @__PURE__ */ jsx6("desc", { children: "Created with Sketch." }),
+        /* @__PURE__ */ jsx6("defs", {}),
+        /* @__PURE__ */ jsx6(
+          "g",
+          {
+            id: "Page-1",
+            stroke: "none",
+            "stroke-width": "1",
+            fill: "none",
+            "fill-rule": "evenodd",
+            children: /* @__PURE__ */ jsxs5("g", { id: "ethereum", "fill-rule": "nonzero", children: [
+              /* @__PURE__ */ jsx6(
+                "polygon",
+                {
+                  id: "Shape",
+                  fill: "#343434",
+                  points: "127.56 0 125.09 9.14 125.09 279.64 127.56 281.87 255.12 210.98"
+                }
+              ),
+              /* @__PURE__ */ jsx6(
+                "polygon",
+                {
+                  id: "Shape",
+                  fill: "#8C8C8C",
+                  points: "127.56 0 0 210.98 127.56 281.87 127.56 150.86"
+                }
+              ),
+              /* @__PURE__ */ jsx6(
+                "polygon",
+                {
+                  id: "Shape",
+                  fill: "#3C3C3B",
+                  points: "127.56 302.71 126.14 304.32 126.14 414.35 127.56 417 255.19 237.89"
+                }
+              ),
+              /* @__PURE__ */ jsx6(
+                "polygon",
+                {
+                  id: "Shape",
+                  fill: "#8C8C8C",
+                  points: "127.56 417 127.56 302.71 0 237.89"
+                }
+              ),
+              /* @__PURE__ */ jsx6(
+                "polygon",
+                {
+                  id: "Shape",
+                  fill: "#141414",
+                  points: "127.56 281.87 255.12 210.98 127.56 150.86"
+                }
+              ),
+              /* @__PURE__ */ jsx6(
+                "polygon",
+                {
+                  id: "Shape",
+                  fill: "#393939",
+                  points: "0 210.98 127.56 281.87 127.56 150.86"
+                }
+              )
+            ] })
+          }
+        )
+      ]
+    }
+  );
+}
 
 // src/components/ui/select.tsx
 import * as React3 from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
-import { jsx as jsx3, jsxs as jsxs2 } from "react/jsx-runtime";
+import { jsx as jsx7, jsxs as jsxs6 } from "react/jsx-runtime";
 var Select = SelectPrimitive.Root;
 var SelectValue = SelectPrimitive.Value;
-var SelectTrigger = React3.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ jsxs2(
+var SelectTrigger = React3.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ jsxs6(
   SelectPrimitive.Trigger,
   {
     ref,
@@ -154,12 +310,12 @@ var SelectTrigger = React3.forwardRef(({ className, children, ...props }, ref) =
     ...props,
     children: [
       children,
-      /* @__PURE__ */ jsx3(SelectPrimitive.Icon, { asChild: true, children: /* @__PURE__ */ jsx3(ChevronDown, { className: "h-4 w-4 opacity-50" }) })
+      /* @__PURE__ */ jsx7(SelectPrimitive.Icon, { asChild: true, children: /* @__PURE__ */ jsx7(ChevronDown, { className: "h-4 w-4 opacity-50" }) })
     ]
   }
 ));
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
-var SelectScrollUpButton = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx3(
+var SelectScrollUpButton = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx7(
   SelectPrimitive.ScrollUpButton,
   {
     ref,
@@ -168,11 +324,11 @@ var SelectScrollUpButton = React3.forwardRef(({ className, ...props }, ref) => /
       className
     ),
     ...props,
-    children: /* @__PURE__ */ jsx3(ChevronUp, { className: "h-4 w-4" })
+    children: /* @__PURE__ */ jsx7(ChevronUp, { className: "h-4 w-4" })
   }
 ));
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
-var SelectScrollDownButton = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx3(
+var SelectScrollDownButton = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx7(
   SelectPrimitive.ScrollDownButton,
   {
     ref,
@@ -181,11 +337,11 @@ var SelectScrollDownButton = React3.forwardRef(({ className, ...props }, ref) =>
       className
     ),
     ...props,
-    children: /* @__PURE__ */ jsx3(ChevronDown, { className: "h-4 w-4" })
+    children: /* @__PURE__ */ jsx7(ChevronDown, { className: "h-4 w-4" })
   }
 ));
 SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName;
-var SelectContent = React3.forwardRef(({ className, children, position = "popper", ...props }, ref) => /* @__PURE__ */ jsx3(SelectPrimitive.Portal, { children: /* @__PURE__ */ jsxs2(
+var SelectContent = React3.forwardRef(({ className, children, position = "popper", ...props }, ref) => /* @__PURE__ */ jsx7(SelectPrimitive.Portal, { children: /* @__PURE__ */ jsxs6(
   SelectPrimitive.Content,
   {
     ref,
@@ -197,8 +353,8 @@ var SelectContent = React3.forwardRef(({ className, children, position = "popper
     position,
     ...props,
     children: [
-      /* @__PURE__ */ jsx3(SelectScrollUpButton, {}),
-      /* @__PURE__ */ jsx3(
+      /* @__PURE__ */ jsx7(SelectScrollUpButton, {}),
+      /* @__PURE__ */ jsx7(
         SelectPrimitive.Viewport,
         {
           className: cn(
@@ -208,12 +364,12 @@ var SelectContent = React3.forwardRef(({ className, children, position = "popper
           children
         }
       ),
-      /* @__PURE__ */ jsx3(SelectScrollDownButton, {})
+      /* @__PURE__ */ jsx7(SelectScrollDownButton, {})
     ]
   }
 ) }));
 SelectContent.displayName = SelectPrimitive.Content.displayName;
-var SelectLabel = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx3(
+var SelectLabel = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx7(
   SelectPrimitive.Label,
   {
     ref,
@@ -222,7 +378,7 @@ var SelectLabel = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE
   }
 ));
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
-var SelectItem = React3.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ jsxs2(
+var SelectItem = React3.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ jsxs6(
   SelectPrimitive.Item,
   {
     ref,
@@ -232,13 +388,13 @@ var SelectItem = React3.forwardRef(({ className, children, ...props }, ref) => /
     ),
     ...props,
     children: [
-      /* @__PURE__ */ jsx3("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx3(SelectPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx3(Check, { className: "h-4 w-4" }) }) }),
-      /* @__PURE__ */ jsx3(SelectPrimitive.ItemText, { children })
+      /* @__PURE__ */ jsx7("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx7(SelectPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx7(Check, { className: "h-4 w-4" }) }) }),
+      /* @__PURE__ */ jsx7(SelectPrimitive.ItemText, { children })
     ]
   }
 ));
 SelectItem.displayName = SelectPrimitive.Item.displayName;
-var SelectSeparator = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx3(
+var SelectSeparator = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx7(
   SelectPrimitive.Separator,
   {
     ref,
@@ -252,7 +408,7 @@ SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 import * as React4 from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
-import { jsx as jsx4 } from "react/jsx-runtime";
+import { jsx as jsx8 } from "react/jsx-runtime";
 var buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
@@ -281,7 +437,7 @@ var buttonVariants = cva(
 var Button = React4.forwardRef(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
-    return /* @__PURE__ */ jsx4(
+    return /* @__PURE__ */ jsx8(
       Comp,
       {
         className: cn(buttonVariants({ variant, size, className })),
@@ -294,7 +450,7 @@ var Button = React4.forwardRef(
 Button.displayName = "Button";
 
 // src/components/Tip.tsx
-import { jsx as jsx5, jsxs as jsxs3 } from "react/jsx-runtime";
+import { jsx as jsx9, jsxs as jsxs7 } from "react/jsx-runtime";
 var currencyMap = {
   1: [
     {
@@ -354,10 +510,10 @@ function TipDrawer({ className }) {
   const { chains, switchChain } = useSwitchChain();
   const [selectedCurrencyAddress, setSelectedCurrencyAddress] = useState("");
   const chainLogoMap = {
-    137: /* @__PURE__ */ jsx5(PolygonLogo, {}),
-    10: /* @__PURE__ */ jsx5(OptimismLogo, {}),
-    8453: /* @__PURE__ */ jsx5(BaseLogo, {}),
-    1: /* @__PURE__ */ jsx5(EthereumLogo, {})
+    137: /* @__PURE__ */ jsx9(PolygonLogo, {}),
+    10: /* @__PURE__ */ jsx9(OptimismLogo, {}),
+    8453: /* @__PURE__ */ jsx9(BaseLogo, {}),
+    1: /* @__PURE__ */ jsx9(EthereumLogo, {})
   };
   const chainColorMap = {
     137: "violet-600",
@@ -403,29 +559,29 @@ function TipDrawer({ className }) {
       console.error(error);
     }
   };
-  return /* @__PURE__ */ jsxs3(Drawer, { children: [
-    /* @__PURE__ */ jsx5(DrawerTrigger, { asChild: true, children: /* @__PURE__ */ jsxs3(
+  return /* @__PURE__ */ jsxs7(Drawer, { children: [
+    /* @__PURE__ */ jsx9(DrawerTrigger, { asChild: true, children: /* @__PURE__ */ jsxs7(
       Button,
       {
         size: "sm",
         variant: "outline",
         className: `flex items-center gap-2 ${className}`,
         children: [
-          /* @__PURE__ */ jsx5(PointerIcon, { className: "h-5 w-5" }),
-          /* @__PURE__ */ jsx5("span", { children: "Send Tip" })
+          /* @__PURE__ */ jsx9(PointerIcon, { className: "h-5 w-5" }),
+          /* @__PURE__ */ jsx9("span", { children: "Send Tip" })
         ]
       }
     ) }),
-    /* @__PURE__ */ jsx5(DrawerContent, { children: /* @__PURE__ */ jsxs3("div", { className: "mx-auto w-full max-w-sm", children: [
-      /* @__PURE__ */ jsxs3(DrawerHeader, { className: "space-y-4", children: [
-        /* @__PURE__ */ jsx5(DrawerTitle, { children: "Send a tip!" }),
-        /* @__PURE__ */ jsxs3(DrawerDescription, { children: [
+    /* @__PURE__ */ jsx9(DrawerContent, { children: /* @__PURE__ */ jsxs7("div", { className: "mx-auto w-full max-w-sm", children: [
+      /* @__PURE__ */ jsxs7(DrawerHeader, { className: "space-y-4", children: [
+        /* @__PURE__ */ jsx9(DrawerTitle, { children: "Send a tip!" }),
+        /* @__PURE__ */ jsxs7(DrawerDescription, { children: [
           "Did this tool help you? Send a tip to show your appreciation!",
           " ",
-          /* @__PURE__ */ jsx5("br", {}),
-          /* @__PURE__ */ jsx5("br", {}),
+          /* @__PURE__ */ jsx9("br", {}),
+          /* @__PURE__ */ jsx9("br", {}),
           "This tool was created by",
-          /* @__PURE__ */ jsxs3(
+          /* @__PURE__ */ jsxs7(
             "a",
             {
               href: "https://hey.xyz/u/hone1er",
@@ -441,9 +597,9 @@ function TipDrawer({ className }) {
           "! Follow on hey.xyz or any Lens app for more updates. \u{1F680}"
         ] })
       ] }),
-      /* @__PURE__ */ jsxs3("div", { className: "flex max-w-sm flex-col gap-6 p-4", children: [
-        /* @__PURE__ */ jsx5("h3", { className: "text-lg font-semibold", children: "Select Chain" }),
-        /* @__PURE__ */ jsx5("div", { className: "flex flex-wrap gap-2", children: chains.map((chain) => /* @__PURE__ */ jsx5(
+      /* @__PURE__ */ jsxs7("div", { className: "flex max-w-sm flex-col gap-6 p-4", children: [
+        /* @__PURE__ */ jsx9("h3", { className: "text-lg font-semibold", children: "Select Chain" }),
+        /* @__PURE__ */ jsx9("div", { className: "flex flex-wrap gap-2", children: chains.map((chain) => /* @__PURE__ */ jsx9(
           Button,
           {
             onClick: () => switchChain({ chainId: chain.id }),
@@ -454,13 +610,13 @@ function TipDrawer({ className }) {
           },
           chain.id
         )) }),
-        /* @__PURE__ */ jsxs3(
+        /* @__PURE__ */ jsxs7(
           Select,
           {
             onValueChange: (val) => setSelectedCurrencyAddress(val),
             children: [
-              /* @__PURE__ */ jsx5(SelectTrigger, { className: "w-[180px]", children: /* @__PURE__ */ jsx5(SelectValue, { placeholder: "Currency" }) }),
-              /* @__PURE__ */ jsx5(SelectContent, { children: currencyMap[chainId]?.map((currency) => /* @__PURE__ */ jsxs3(SelectItem, { value: currency.address, children: [
+              /* @__PURE__ */ jsx9(SelectTrigger, { className: "w-[180px]", children: /* @__PURE__ */ jsx9(SelectValue, { placeholder: "Currency" }) }),
+              /* @__PURE__ */ jsx9(SelectContent, { children: currencyMap[chainId]?.map((currency) => /* @__PURE__ */ jsxs7(SelectItem, { value: currency.address, children: [
                 currency.name,
                 " (",
                 currency.symbol,
@@ -470,7 +626,7 @@ function TipDrawer({ className }) {
           }
         )
       ] }),
-      /* @__PURE__ */ jsx5("div", { className: "p-4 pb-0", children: /* @__PURE__ */ jsx5("div", { className: "mt-3", children: /* @__PURE__ */ jsx5(
+      /* @__PURE__ */ jsx9("div", { className: "p-4 pb-0", children: /* @__PURE__ */ jsx9("div", { className: "mt-3", children: /* @__PURE__ */ jsx9(
         Input,
         {
           placeholder: "Enter amount",
@@ -481,21 +637,21 @@ function TipDrawer({ className }) {
           step: "0.01"
         }
       ) }) }),
-      /* @__PURE__ */ jsxs3(DrawerFooter, { children: [
-        /* @__PURE__ */ jsx5(
+      /* @__PURE__ */ jsxs7(DrawerFooter, { children: [
+        /* @__PURE__ */ jsx9(
           Button,
           {
             onClick: () => handleTransferERC20(selectedCurrencyAddress),
             children: "Send"
           }
         ),
-        /* @__PURE__ */ jsx5(DrawerClose, { asChild: true, children: /* @__PURE__ */ jsx5(Button, { variant: "outline", children: "Cancel" }) })
+        /* @__PURE__ */ jsx9(DrawerClose, { asChild: true, children: /* @__PURE__ */ jsx9(Button, { variant: "outline", children: "Cancel" }) })
       ] })
     ] }) })
   ] });
 }
 function PointerIcon({ ...props }) {
-  return /* @__PURE__ */ jsxs3(
+  return /* @__PURE__ */ jsxs7(
     "svg",
     {
       ...props,
@@ -509,11 +665,11 @@ function PointerIcon({ ...props }) {
       strokeLinecap: "round",
       strokeLinejoin: "round",
       children: [
-        /* @__PURE__ */ jsx5("path", { d: "M22 14a8 8 0 0 1-8 8" }),
-        /* @__PURE__ */ jsx5("path", { d: "M18 11v-1a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" }),
-        /* @__PURE__ */ jsx5("path", { d: "M14 10V9a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1" }),
-        /* @__PURE__ */ jsx5("path", { d: "M10 9.5V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v10" }),
-        /* @__PURE__ */ jsx5("path", { d: "M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" })
+        /* @__PURE__ */ jsx9("path", { d: "M22 14a8 8 0 0 1-8 8" }),
+        /* @__PURE__ */ jsx9("path", { d: "M18 11v-1a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" }),
+        /* @__PURE__ */ jsx9("path", { d: "M14 10V9a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1" }),
+        /* @__PURE__ */ jsx9("path", { d: "M10 9.5V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v10" }),
+        /* @__PURE__ */ jsx9("path", { d: "M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" })
       ]
     }
   );
