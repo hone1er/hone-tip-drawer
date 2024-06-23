@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { Config } from 'wagmi';
+import {
+  useChainId,
+  useSendTransaction,
+  useSwitchChain,
+  useWriteContract,
+} from 'wagmi';
 import {
   Drawer,
   DrawerClose,
@@ -10,7 +15,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from './ui/drawer';
-import { Chain, erc20Abi, parseEther } from 'viem';
+import { erc20Abi, parseEther } from 'viem';
 import { Input } from './ui/input';
 import PolygonLogo from '../../public/logos/polygon_logo';
 import OptimismLogo from '../../public/logos/optimism_logo';
@@ -25,11 +30,6 @@ import {
 } from './ui/select';
 import { Button } from './ui/button';
 import { Currency } from '../Currency';
-import {
-  SendTransactionMutate,
-  SwitchChainMutate,
-  WriteContractMutateAsync,
-} from 'wagmi/query';
 
 const currencyMap: Record<number, Currency[]> = {
   1: [
@@ -83,24 +83,13 @@ const currencyMap: Record<number, Currency[]> = {
     },
   ],
 };
-
-export function TipDrawer({
-  className,
-  chainId,
-  sendTransaction,
-  writeContractAsync,
-  chains,
-  switchChain,
-}: {
-  className?: string;
-  chainId: number;
-  sendTransaction: SendTransactionMutate<Config, unknown>;
-  writeContractAsync: WriteContractMutateAsync<Config, unknown>;
-  chains: readonly [Chain, ...Chain[]];
-  switchChain: SwitchChainMutate<Config, unknown>;
-}) {
+export function TipDrawer({ className }: { className?: string }) {
   const [amount, setAmount] = useState('');
+  const chainId = useChainId();
 
+  const { sendTransaction } = useSendTransaction();
+  const { writeContractAsync } = useWriteContract();
+  const { chains, switchChain } = useSwitchChain();
   const [selectedCurrencyAddress, setSelectedCurrencyAddress] = useState('');
   const chainLogoMap: Record<number | string, JSX.Element> = {
     137: <PolygonLogo />,
@@ -129,7 +118,7 @@ export function TipDrawer({
           ],
         },
         {
-          onError: (error: any) => {
+          onError: (error) => {
             alert(error.message);
           },
           onSuccess: (hash: string) => {
@@ -196,7 +185,7 @@ export function TipDrawer({
           <div className='flex max-w-sm flex-col gap-6 p-4'>
             <h3 className='text-lg font-semibold'>Select Chain</h3>
             <div className='flex flex-wrap gap-2'>
-              {chains.map((chain: Chain) => (
+              {chains.map((chain) => (
                 <Button
                   key={chain.id}
                   onClick={() => switchChain({ chainId: chain.id })}
