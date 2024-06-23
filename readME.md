@@ -1,6 +1,6 @@
 # hone-tip-drawer
 
-**Version: 0.0.27**
+**Version: 0.0.28**
 
 ## Description
 
@@ -33,19 +33,13 @@ function App() {
   return (
     <div>
       <h1>My Website</h1>
-      <TipDrawer className="my-custom-class" />
+      <TipDrawer className="my-custom-class" tipJarAddress={'0x123...'}/>
     </div>
   );
 
 export default App;
 }
 ```
-
-## Environment Variables
-
-Make sure to set the following environment variable in your project:
-
-- `NEXT_PUBLIC_TIP_ADDRESS`: The address where the tips will be sent.
 
 ## Features
 

@@ -34,9 +34,9 @@ import { Currency } from '../Currency';
 const currencyMap: Record<number, Currency[]> = {
   1: [
     {
-      name: 'Wrapped Ethereum',
-      symbol: 'WETH',
-      address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+      name: 'Ethereum',
+      symbol: 'ETH',
+      address: '0x',
     },
     {
       name: 'Dai Stablecoin',
@@ -78,12 +78,18 @@ const currencyMap: Record<number, Currency[]> = {
 
     {
       name: 'Wrapped Matic',
-      symbol: 'WMATIC',
-      address: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+      symbol: 'MATIC',
+      address: '0x',
     },
   ],
 };
-export function TipDrawer({ className }: { className?: string }) {
+export function TipDrawer({
+  className,
+  tipJarAddress,
+}: {
+  className?: string;
+  tipJarAddress: `0x${string}`;
+}) {
   const [amount, setAmount] = useState('');
   const chainId = useChainId();
 
@@ -112,10 +118,7 @@ export function TipDrawer({ className }: { className?: string }) {
           address: address,
           abi: erc20Abi,
           functionName: 'transfer',
-          args: [
-            process.env.NEXT_PUBLIC_TIP_ADDRESS as `0x${string}`,
-            parseEther(amount),
-          ],
+          args: [tipJarAddress, parseEther(amount)],
         },
         {
           onError: (error) => {
@@ -140,7 +143,7 @@ export function TipDrawer({ className }: { className?: string }) {
   const handleSend = async () => {
     try {
       sendTransaction({
-        to: process.env.NEXT_PUBLIC_TIP_ADDRESS as `0x${string}`,
+        to: tipJarAddress,
 
         value: parseEther(amount),
       });
@@ -234,9 +237,13 @@ export function TipDrawer({ className }: { className?: string }) {
           </div>
           <DrawerFooter>
             <Button
-              onClick={() =>
-                handleTransferERC20(selectedCurrencyAddress as `0x${string}`)
-              }
+              onClick={() => {
+                if (selectedCurrencyAddress === '0x') {
+                  handleSend();
+                  return;
+                }
+                handleTransferERC20(selectedCurrencyAddress as `0x${string}`);
+              }}
             >
               Send
             </Button>
